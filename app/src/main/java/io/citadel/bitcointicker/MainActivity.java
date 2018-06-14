@@ -70,7 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-
+                //Called when responce HTTP status is 200 OK
+                
                 Log.d("Bitcoin","onSuccessCallback");
                 Log.d("Bitcoin",response.toString());
 
