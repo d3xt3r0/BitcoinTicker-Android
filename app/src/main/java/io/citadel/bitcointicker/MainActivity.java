@@ -1,7 +1,8 @@
 package io.citadel.bitcointicker;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -38,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         mBitcoinValueTextView =  findViewById(R.id.text_view_bitcoin_value);
         mSpinnerCurrencySelect = findViewById(R.id.spinner_select_currency);
 
+
+        //Setting up link
+        TextView t2 = (TextView) findViewById(R.id.textView3);
+        t2.setMovementMethod(LinkMovementMethod.getInstance());
+
         //Configuring the Spinner
 
         ArrayAdapter<CharSequence> arrayAdapterCurrency = ArrayAdapter.createFromResource(this
@@ -70,8 +76,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                //Called when responce HTTP status is 200 OK
-                
+
+                // called when response HTTP status is 200 OK
+
                 Log.d("Bitcoin","onSuccessCallback");
                 Log.d("Bitcoin",response.toString());
 
