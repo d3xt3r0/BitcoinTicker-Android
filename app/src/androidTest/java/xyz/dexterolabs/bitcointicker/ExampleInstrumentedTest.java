@@ -1,4 +1,4 @@
-package io.citadel.bitcointicker;
+package xyz.dexterolabs.bitcointicker;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

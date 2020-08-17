@@ -1,4 +1,4 @@
-package io.citadel.bitcointicker;
+package xyz.dexterolabs.bitcointicker;
 
 import org.junit.Test;
 
