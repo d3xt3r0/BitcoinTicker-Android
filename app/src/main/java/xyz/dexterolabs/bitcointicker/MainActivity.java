@@ -16,6 +16,8 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Currency;
+
 import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity {
@@ -47,21 +49,21 @@ public class MainActivity extends AppCompatActivity {
         //Configuring the Spinner
 
         ArrayAdapter<CharSequence> arrayAdapterCurrency = ArrayAdapter.createFromResource(this
-                ,R.array.currency_array,android.R.layout.simple_spinner_item);
+                ,R.array.currency_array,R.layout.spinner_item);
 
-        arrayAdapterCurrency.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        arrayAdapterCurrency.setDropDownViewResource(R.layout.spinner_drop_down_item);
 
         mSpinnerCurrencySelect.setAdapter(arrayAdapterCurrency);
 
         mSpinnerCurrencySelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                updateBitcoinValue(adapterView.getSelectedItem().toString());
+                updateBitcoinValue(adapterView.getSelectedItem().toString().substring(adapterView.getSelectedItem().toString().length()-4, adapterView.getSelectedItem().toString().length()-1));
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                mBitcoinValueTextView.setText("Nothing Selected");
+                mBitcoinValueTextView.setText(R.string.nothing_selected_text);
             }
         });
     }
@@ -84,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
 
                 try {
-                    mBitcoinValueTextView.setText(response.getJSONObject("bpi").getJSONObject(currency).getString("rate"));
+                    String CurrencyVal = response.getJSONObject("bpi").getJSONObject(currency).getString("rate")+ " "+ currency ;
+                    mBitcoinValueTextView.setText(CurrencyVal);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

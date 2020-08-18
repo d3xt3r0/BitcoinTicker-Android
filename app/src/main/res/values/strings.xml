@@ -1,25 +1,27 @@
 <resources>
-    <string name="app_name">BitcoinTicker</string>
+    <string name="app_name">Bitcoin Ticker</string>
 
     <string-array name="currency_array">
 
-        <item>AUD</item>
-        <item>BRL</item>
-        <item>CAD</item>
-        <item>CNY</item>
-        <item>EUR</item>
-        <item>GBP</item>
-        <item>HKD</item>
-        <item>INR</item>
-        <item>JPY</item>
-        <item>PLN</item>
-        <item>RUB</item>
-        <item>SEK</item>
-        <item>USD</item>
-        <item>ZAR</item>
+        <item>Australian dollar (AUD)</item>
+        <item>Brazilian real (BRL)</item>
+        <item>Canadian dollar (CAD)</item>
+        <item>Chinese yuan (CNY)</item>
+        <item>Euro (EUR)</item>
+        <item>British pound (GBP)</item>
+        <item>Hong Kong dollar (HKD)</item>
+        <item>Indian rupee (INR)</item>
+        <item>Japanese yen (JPY)</item>
+        <item>Polish złoty (PLN)</item>
+        <item>Russian ruble (RUB)</item>
+        <item>Swedish krona (SEK)</item>
+        <item>United States dollar (USD)</item>
+        <item>South African rand (ZAR)</item>
 
     </string-array>
 
     <string name="messageWithLink">Powered by <a href="https://www.coindesk.com/price/">CoinDesk</a></string>
+    <string name="price">Price</string>
+    <string name="nothing_selected_text">Nothing Selected</string>
 
 </resources>
