@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Setting up link
-        TextView t2 = (TextView) findViewById(R.id.textView3);
+        TextView t2 = (TextView) findViewById(R.id.textView2);
         t2.setMovementMethod(LinkMovementMethod.getInstance());
 
         //Configuring the Spinner

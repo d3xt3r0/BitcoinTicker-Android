@@ -20,4 +20,6 @@
 
     </string-array>
 
+    <string name="messageWithLink">Powered by <a href="https://www.coindesk.com/price/">CoinDesk</a></string>
+
 </resources>
