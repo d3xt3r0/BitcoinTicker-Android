@@ -1,5 +1,7 @@
 package xyz.dexterolabs.bitcointicker;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.LinkMovementMethod;
@@ -9,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -58,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
         mSpinnerCurrencySelect.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                if (!isNetworkConnected()) {
+                    Toast.makeText(MainActivity.this,"Please connect to the internet",Toast.LENGTH_SHORT).show();
+                }
+                
                 updateBitcoinValue(adapterView.getSelectedItem().toString().substring(adapterView.getSelectedItem().toString().length()-4, adapterView.getSelectedItem().toString().length()-1));
             }
 
@@ -105,6 +113,13 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+    }
+
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnected();
     }
 
 
